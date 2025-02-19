@@ -1,0 +1,60 @@
+import java.util.ArrayList;
+import java.util.List;
+
+class Card {
+    private String symbol;
+    private String value;
+
+    public Card(String symbol, String value) {
+        this.symbol = symbol;
+        this.value = value;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return value + " of " + symbol;
+    }
+}
+
+public class CardCollection {
+    public static void main(String[] args) {
+        // Create a collection to store the cards
+        List<Card> deck = new ArrayList<>();
+
+        // Add cards to the deck
+        deck.add(new Card("Hearts", "2"));
+        deck.add(new Card("Hearts", "3"));
+        deck.add(new Card("Spades", "Ace"));
+        deck.add(new Card("Diamonds", "King"));
+        deck.add(new Card("Clubs", "10"));
+        deck.add(new Card("Hearts", "Queen"));
+
+        // Find all cards with the symbol "Hearts"
+        List<Card> heartsCards = findCardsBySymbol(deck, "Hearts");
+
+        // Display the result
+        System.out.println("Cards with symbol 'Hearts':");
+        for (Card card : heartsCards) {
+            System.out.println(card);
+        }
+    }
+
+    // Method to find cards by symbol
+    public static List<Card> findCardsBySymbol(List<Card> deck, String symbol) {
+        List<Card> result = new ArrayList<>();
+        for (Card card : deck) {
+            if (card.getSymbol().equalsIgnoreCase(symbol)) {
+                result.add(card);
+            }
+        }
+        return result;
+    }
+}
