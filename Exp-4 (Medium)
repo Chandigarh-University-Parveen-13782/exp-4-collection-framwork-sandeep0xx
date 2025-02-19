@@ -58,3 +58,11 @@ public class CardCollection {
         return result;
     }
 }
+
+
+/*  Output:
+Cards with symbol 'Hearts':
+2 of Hearts
+3 of Hearts
+Queen of Hearts
+*/
